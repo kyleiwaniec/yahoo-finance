@@ -29,7 +29,7 @@
 				<h4>{{idx.name}}</h4>
 				<!-- <p>{{idx.startVal}}</p>
 				<p>{{idx.endVal}}</p> -->
-				<p ng-class="{ 'increase' : ys.periodData[period].deltas[idx.symbol] > 0, 'decrease' : ys.periodData[period].deltas[idx.symbol] < 0  }">{{ys.periodData[period].deltas[idx.symbol]}}%</p>
+				<p ng-class="{ 'increase' : idx.delta > 0, 'decrease' : idx.delta < 0  }">{{idx.delta}}%</p>
 				</div>
 				<div class="back">
 					<div class="quote">
