@@ -1,0 +1,130 @@
+/* 
+    Document   : card-flip
+    Created on : Jun 11, 2012, 9:48:18 AM
+    Author     : kylehamilton
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.panel {
+    /*float: left;
+    max-width: 300px;
+    max-height: 200px;
+    margin: 20px;
+    position: relative;
+    font-size: .8em;*/
+
+
+    -webkit-perspective: 600;
+}
+/* -- make sure to declare a default for every property that you want animated -- */
+/* -- general styles, including Y axis rotation -- */
+.panel .front {
+    float: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: inherit;
+    min-height: 150px;
+    border: 1px solid #fff;
+    background: #fefefe;
+    text-align: center;
+    padding:5px;
+
+
+    box-shadow: 0 1px 7px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 1px 7px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 1px 7px rgba(0,0,0,0.2);
+
+    -webkit-transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
+    /* -- transition is the magic sauce for animation -- */
+    transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+
+    cursor:pointer;
+}
+.panel.flip .front {
+    z-index: 900;
+    border-color: #eee;
+
+    -webkit-transform: rotateY(180deg);
+
+    box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+
+
+}
+
+.front:hover{
+    background:  #eee;
+
+}
+
+.panel .back {
+    float: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 800;
+    width: 100%;
+    height: inherit;
+    min-height: 150px;
+    /*line-height:30px;*/
+    /*text-align: center;*/
+    border: 1px solid #eee;
+    background: #fff;
+    /*text-shadow: -1px  -1px 1px rgba(0,0,0,0.6), 1px  1px 1px rgba(255,255,255,0.5); */
+    color:#444;
+    font-weight:normal;
+    font-size: 11px;
+    padding:15px;
+
+    -webkit-transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
+    /* -- transition is the magic sauce for animation -- */
+    transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+}
+
+.panel.flip .back {
+    z-index: 1000;
+
+    -webkit-transform: rotateY(0deg);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+}
+
+
+/* -- cosmetics -- */
+.panel .pad {padding: 0 15px; }
+.panel.flip .action {display: none; }
+h2.scissors{
+
+    font-weight:normal;
+    font-size:40px;
+    border-bottom: 1px dashed #ccc;
+    line-height:0;
+    padding:0;
+    margin-top:100px;
+}
+.heart{
+    font-size:50px;
+}
+.scull{
+    font-family:"Menlo";
+    font-size:100px;
+}
+.angular{
+    -webkit-transform: rotateZ(-35deg);
+}
