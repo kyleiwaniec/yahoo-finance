@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/bower_components/nvd3/nv.d3.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
-    
+    <script>DEBUGMODE = true;</script>
 
 </head>
   <body>
@@ -48,7 +48,7 @@
     </div>
     <footer ng-include src="'/views/footer.html'" class="max-width"></footer>
 
-    
+    <script src="/js/utils/log-stacktrace.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
@@ -60,6 +60,7 @@
     <script src="/bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.min.js"></script>
     <script src="/js/init.js"></script>
     <script src="/js/controllers/home.js"></script>
+    <script src="/js/services/initData.js"></script>
     <script src="/js/services/yahoo.js"></script>
     <script src="/js/main.js"></script>
   </body>

@@ -18,7 +18,11 @@ portal
       .when('/', {
         templateUrl: '/views/home.html',
         controller: 'HomeCtrl',
-        title: 'HOME'
+        resolve: {
+            history: function(InitialData){
+                return InitialData();
+            }
+        }
       })
       .otherwise({
         redirectTo: '/'

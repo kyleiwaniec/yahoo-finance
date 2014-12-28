@@ -7,9 +7,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="" ng-click="getHistoricalData({event:$event})">YEAR</a></li>
-            <li><a href="" ng-click="getHistoricalData({period:'month', event:$event})">MONTH</a></li>
-            <li><a href="" ng-click="getHistoricalData({period:'week', event:$event})">WEEK</a></li>
+            <li class="active"><a href="" ng-click="filter({interval:'year', event:$event})">YEAR</a></li>
+            <li><a href="" ng-click="filter({interval:'month', event:$event})">MONTH</a></li>
+            <li><a href="" ng-click="filter({interval:'week', event:$event})">WEEK</a></li>
             <li><a href="" ng-click="getQuotes({event:$event})">TODAY</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -17,7 +17,10 @@
     </nav>
 
 	
-	<div id="chart" class="col-sm-10">
+	<div id="chart" ng-show="linechart" class="col-sm-10">
+		<svg style="height:500px"></svg>
+	</div>
+	<div id="barchart" ng-show="barchart" class="col-sm-10">
 		<svg style="height:500px"></svg>
 	</div>
 </div>
@@ -27,9 +30,7 @@
 			<div class="click panel" ng-click="getQuote(idx.symbol, $event)">
 				<div class="front">
 				<h4>{{idx.name}}</h4>
-				<!-- <p>{{idx.startVal}}</p>
-				<p>{{idx.endVal}}</p> -->
-				<p ng-class="{ 'increase' : ys.periodData[period].deltas[idx.symbol] > 0, 'decrease' : ys.periodData[period].deltas[idx.symbol] < 0  }">{{ys.periodData[period].deltas[idx.symbol]}}%</p>
+				<p ng-class="{ 'increase' : idx.delta > 0, 'decrease' : idx.delta < 0  }">{{idx.delta}}%</p>
 				</div>
 				<div class="back">
 					<div class="quote">
