@@ -3,11 +3,11 @@ yahoo-finance
 
 DEMO: http://candpgeneration.com/yahoo-finance
 #### Notes: ####
-Each box displays the percent change for the current interval. Click on each of the boxes to view latest quote details
+Each box displays the percent change for the current interval. Click on each of the boxes to view latest quote details.
 
 ####Known issues: ####
 1. It's not 'Real Time' because I do not have access to real time data. 
-2. The Yahoo Finance API returns bad data fro certain indexes, so those have been commented out - as a result 5 indexes only are displayed.
+2. The Yahoo Finance API returns bad data for certain indexes, so those have been commented out - as a result only 5 indexes are displayed in this demo.
 
 
 ## Challenge Brief ##
