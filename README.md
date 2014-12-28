@@ -1,7 +1,7 @@
 yahoo-finance
 =============
 
-#### DEMO: #### 
+#### DEMO: ####
 http://candpgeneration.com/yahoo-finance
 #### Notes: ####
 Each box displays the percent change for the current interval. Click on each of the boxes to view latest quote details.
