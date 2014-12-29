@@ -13,7 +13,7 @@ Each box displays the percent change for the current interval. Click on each of 
 4. No Unit tests. :boom:
 
 #### Caveats: ####
-I am not a financier, hence I do not know what aspects of the data are 'important'. The % change for each interval is just UI sugar. More pertinent info can just as easily be displayed there.
+I am not a financier, hence I do not know what aspects of the data are 'important'. The % change for each interval is just UI sugar. More pertinent info can just as easily be displayed there. Also, this is by no means a 'production' ready app. A lot more architecting would go into an actual application, ie.: individual angular modules, a better graphing library, or custom d3 graphs, SASS instead of plain CSS, build environment (node, npm..), unit tests.. etc...etc..
 
 ## Challenge Brief ##
 https://www.gapjumpers.me/questions/mckinsey-digital-labs/qs-154/#resourcetab
