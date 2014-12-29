@@ -12,7 +12,7 @@ portal
     drawLineChart(chartData)
 
     $scope.filter = function(o) {
-      $(event.currentTarget).parent('li').addClass("active").siblings("li").removeClass("active");
+      $(o.event.currentTarget).parent('li').addClass("active").siblings("li").removeClass("active");
       var filteredData = $.extend(true, [], chartData);
 
       filteredData.forEach(function(el, i) {
@@ -108,8 +108,8 @@ portal
     }
 
 
-    $scope.getQuotes = function(e) {
-      $(event.currentTarget).parent('li').addClass("active").siblings("li").removeClass("active");
+    $scope.getQuotes = function(o) {
+      $(o.event.currentTarget).parent('li').addClass("active").siblings("li").removeClass("active");
 
       var symbols = YahooService.indeces.map(function(i) {
         return i.symbol;
@@ -139,18 +139,19 @@ portal
       var options = {
         "symbol": symbol
       }
+      $scope.quote = {};
+      var panel = $(e.currentTarget);
+      
+      panel.closest('.row').find('.panel').removeClass('flip open');
+      panel.addClass('flip open');
+
+      $('.back').on('click', function(e) {
+        e.stopPropagation();
+        panel.removeClass('flip open')
+      });
       YahooService.getQuotes(options).then(function(res) {
         $scope.quote = res.data.query.results.quote;
-        var panel = $(e.currentTarget);
-        panel.addClass('flip open');
-        panel.on('mouseleave', function() {
-          $('.open').each(function() {
-            $(this).removeClass('open flip');
-          });
-        });
-        $('.back').on('click', function(e) {
-          e.stopPropagation();
-        });
+        
       })
     }
 
