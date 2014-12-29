@@ -11,22 +11,25 @@ portal
       function parseResults(history) {
         //_log("history", history)
         for (var i = 0; i < history.length; i++) {
-          var arr = history[i].data.query.results.quote;
-          var index = YahooService.indeces[i];
-          index.endVal = arr[0].Close;
-          index.startVal = arr[arr.length - 1].Close;
-          index.delta = (((index.endVal - index.startVal) / index.startVal) * 100).toFixed(2)
+          if(history[i].data.query.results != null){
+            var arr = history[i].data.query.results.quote;
+            var index = YahooService.indeces[i];
+            index.endVal = arr[0].Close;
+            index.startVal = arr[arr.length - 1].Close;
+            index.delta = (((index.endVal - index.startVal) / index.startVal) * 100).toFixed(2)
 
-          var values = arr.map(function(item) {
-            return [new Date(item.Date), item.Close];
-          })
+            var values = arr.map(function(item) {
+              return [new Date(item.Date), item.Close];
+            })
 
-          YahooService.indeces[i].delta = index.delta;
+            YahooService.indeces[i].delta = index.delta;
 
-          YahooService.indeces[i].data.push({
-            "key": index.name,
-            "values": values
-          });
+            YahooService.indeces[i].data.push({
+              "key": index.name,
+              "values": values
+            });
+          }
+          
 
         }
         return history;
