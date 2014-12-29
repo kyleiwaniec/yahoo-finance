@@ -9,6 +9,7 @@ Each box displays the percent change for the current interval. Click on each of 
 #### Known issues: ####
 1. It's not 'Real Time' because I do not have access to real time data. 
 2. The Yahoo Finance API returns bad data for certain indexes, so those have been commented out - as a result only 5 indexes are displayed in this demo.
+3. No Unit tests. :boom:
 
 #### Caveats: ####
 I am not a financier, hence I do not know what aspects of the data are 'important'. The % change for each interval is just UI sugar. More pertinent info can just as easily be displayed there.
