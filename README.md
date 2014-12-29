@@ -8,7 +8,7 @@ Each box displays the percent change for the current interval. Click on each of 
 
 #### Known issues: ####
 1. It's not 'Real Time' because I do not have access to real time data. 
-2. The Yahoo Finance API returns bad data for certain indexes, so those have been commented out - as a result only 5 indexes are displayed in this demo.
+2. The Yahoo Finance API returns bad data for certain indexes, so those have been commented out - as a result only 5 indexes are displayed in this demo. If one of those 5 fails, you will only see 4.. etc.
 3. Best viewed in modern browsers (IE10+)
 4. No Unit tests. :boom:
 
