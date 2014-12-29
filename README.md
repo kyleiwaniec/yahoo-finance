@@ -8,12 +8,12 @@ Each box displays the percent change for the current interval. Click on each of 
 
 #### Known issues: ####
 1. It's not 'Real Time' because I do not have access to real time data. 
-2. The Yahoo Finance API returns bad data for certain indexes, so those have been commented out - as a result only 5 indexes are displayed in this demo.
+2. The Yahoo Finance API returns bad data for certain indexes, so those have been commented out - as a result only 5 indexes are displayed in this demo. If one of those 5 fails, you will only see 4.. etc.
 3. Best viewed in modern browsers (IE10+)
 4. No Unit tests. :boom:
 
 #### Caveats: ####
-I am not a financier, hence I do not know what aspects of the data are 'important'. The % change for each interval is just UI sugar. More pertinent info can just as easily be displayed there.
+I am not a financier, hence I do not know what aspects of the data are 'important'. The % change for each interval is just UI sugar. More pertinent info can just as easily be displayed there. Also, this is by no means a 'production' ready app. A lot more architecting would go into an actual application, ie.: individual angular modules, a better graphing library, or custom d3 graphs, SASS instead of plain CSS, build environment (node, npm..), unit tests.. etc...etc..
 
 ## Challenge Brief ##
 https://www.gapjumpers.me/questions/mckinsey-digital-labs/qs-154/#resourcetab
