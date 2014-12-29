@@ -71,7 +71,25 @@ footer{
 .decrease:before{
 	content:"";
 }
+.nv-legend-text{
+	font-size: 11px;
+}
+
+/* bootstrap overrides  */
 
 svg:not(:root) {
 	overflow: visible;
 }
+
+.navbar-nav {
+	margin: 0;
+}
+
+.navbar-nav>li{
+	position: relative;
+	display: block;
+	float: left;
+	font-size: 12px;
+}
+
+
