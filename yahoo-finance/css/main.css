@@ -69,7 +69,7 @@ footer{
 	height:30px;
 }
 .decrease:before{
-	content:"";
+	display:none;
 }
 .nv-legend-text{
 	font-size: 11px;

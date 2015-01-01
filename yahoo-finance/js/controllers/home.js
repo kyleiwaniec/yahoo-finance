@@ -40,6 +40,7 @@ portal
         var startVal = el.values[el.values.length - 1][1];
         var delta = (((endVal - startVal) / startVal) * 100).toFixed(2);
         YahooService.indeces[i].delta = delta;
+        $scope.percent = true;
       })
 
       drawLineChart(filteredData)
@@ -126,7 +127,8 @@ portal
           "values": []
         }]
         arr.map(function(i, idx) {
-          YahooService.indeces[idx].delta = parseFloat(i.Change.replace(/[-+]/, '')).toFixed(2);
+          YahooService.indeces[idx].delta = parseFloat(i.Change.replace(/[+]/, '')).toFixed(2);
+          $scope.percent = false;
           YahooService.today[0].values.push({
             "label": i.Name,
             "value": i.LastTradePriceOnly

@@ -30,7 +30,7 @@
 			<div class="click panel" ng-click="getQuote(idx.symbol, $event)">
 				<div class="front">
 				<h4>{{idx.name}}</h4>
-				<p ng-class="{ 'increase' : idx.delta > 0, 'decrease' : idx.delta < 0  }">{{idx.delta}}%</p>
+				<p ng-class="{ 'increase' : idx.delta > 0, 'decrease' : idx.delta < 0  }">{{idx.delta}}<span ng-if="percent">%</span></p>
 				</div>
 				<div class="back">
 					<div class="quote">
