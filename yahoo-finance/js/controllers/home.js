@@ -138,8 +138,10 @@ portal
             var arr = res.data.query.results.quote;
             
             arr.map(function(val, idx) {
-              YahooService.indeces[idx].delta = parseFloat(val.Change.replace(/[+]/, '')).toFixed(2);
-              $scope.percent = false;
+              if(_today){
+                YahooService.indeces[idx].delta = parseFloat(val.Change.replace(/[+]/, '')).toFixed(2);
+                $scope.percent = false;
+              }
               YahooService.indeces[idx].today[0].values.push([new Date(), val.LastTradePriceOnly])
             })
 
