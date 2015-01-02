@@ -8,6 +8,7 @@ portal
         symbol: "^NDX",
         name: "NASDAQ-100",
         data: [],
+        today: [],
         delta: 0
       },
       //{symbol:"^OEX",name:"S&P 100 ",data:[]},
@@ -15,16 +16,19 @@ portal
         symbol: "^MID",
         name: "S&P MID CAP 400",
         data: [],
+        today: [],
         delta: 0
       }, {
         symbol: "^IXIC",
         name: "NASDAQ Composite",
         data: [],
+        today: [],
         delta: 0
       }, {
         symbol: "^XAX",
         name: "NYSE AMEX COMPOSITE",
         data: [],
+        today: [],
         delta: 0
       },
       //{symbol:"^DJT",name:"Dow Jones Transportation Average",data:[]},
@@ -33,6 +37,7 @@ portal
         symbol: "^RUT",
         name: "Russell 2000",
         data: [],
+        today: [],
         delta: 0
       }
       //{symbol:"^RUI",name:"Russell 1000",data:[]},

@@ -3,15 +3,18 @@
 portal
   .controller('HomeCtrl', function($scope, $rootScope, $location, $routeParams, $filter, YahooService, history) {
     $scope.ys = YahooService;
-
+    var _today = false;
     //_log("YahooService.indeces", YahooService.indeces)
 
     var chartData = YahooService.indeces.map(function(val) {
       return val.data[0];
     });
+
     drawLineChart(chartData)
+    _log("chartData", chartData)
 
     $scope.filter = function(o) {
+      _today = false;
       $(o.event.currentTarget).parent('li').addClass("active").siblings("li").removeClass("active");
       var filteredData = $.extend(true, [], chartData);
 
@@ -110,11 +113,20 @@ portal
 
 
     $scope.getQuotes = function(o) {
-      $(o.event.currentTarget).parent('li').addClass("active").siblings("li").removeClass("active");
+      _today = true;
 
-      var symbols = YahooService.indeces.map(function(i) {
-        return i.symbol;
-      })
+      $(o.event.currentTarget).parent('li').addClass("active").siblings("li").removeClass("active");
+      var symbols = []
+      YahooService.indeces.map(function(i) {
+        symbols.push(i.symbol);
+        //i.today = [];
+
+        i.today.push({
+              "key": i.name,
+              "values": []
+            });
+        })
+      
       var options = {
         "symbol": symbols.join(",")
       }
@@ -124,19 +136,20 @@ portal
 
           YahooService.getQuotes(options).then(function(res) {
             var arr = res.data.query.results.quote;
-            YahooService.today = [{
-              "key": "barchart",
-              "values": []
-            }]
-            arr.map(function(i, idx) {
-              YahooService.indeces[idx].delta = parseFloat(i.Change.replace(/[+]/, '')).toFixed(2);
+            
+            arr.map(function(val, idx) {
+              YahooService.indeces[idx].delta = parseFloat(val.Change.replace(/[+]/, '')).toFixed(2);
               $scope.percent = false;
-              YahooService.today[0].values.push({
-                "label": i.Name,
-                "value": i.LastTradePriceOnly
-              });
+              YahooService.indeces[idx].today[0].values.push([new Date(), val.LastTradePriceOnly])
             })
-            drawBarChart(YahooService.today);
+
+            var todayData = YahooService.indeces.map(function(val) {
+              return val.today[0];
+            });
+            if(_today){
+              drawLineChart(todayData)
+            }
+            
             poll();
           })
 
@@ -144,7 +157,6 @@ portal
       };
 
       poll();
-
 
 
 
