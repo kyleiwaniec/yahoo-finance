@@ -119,23 +119,35 @@ portal
         "symbol": symbols.join(",")
       }
 
+      var poll = function () {
+        setTimeout(function() {
 
-      YahooService.getQuotes(options).then(function(res) {
-        var arr = res.data.query.results.quote;
-        YahooService.today = [{
-          "key": "barchart",
-          "values": []
-        }]
-        arr.map(function(i, idx) {
-          YahooService.indeces[idx].delta = parseFloat(i.Change.replace(/[+]/, '')).toFixed(2);
-          $scope.percent = false;
-          YahooService.today[0].values.push({
-            "label": i.Name,
-            "value": i.LastTradePriceOnly
-          });
-        })
-        drawBarChart(YahooService.today);
-      })
+          YahooService.getQuotes(options).then(function(res) {
+            var arr = res.data.query.results.quote;
+            YahooService.today = [{
+              "key": "barchart",
+              "values": []
+            }]
+            arr.map(function(i, idx) {
+              YahooService.indeces[idx].delta = parseFloat(i.Change.replace(/[+]/, '')).toFixed(2);
+              $scope.percent = false;
+              YahooService.today[0].values.push({
+                "label": i.Name,
+                "value": i.LastTradePriceOnly
+              });
+            })
+            drawBarChart(YahooService.today);
+            poll();
+          })
+
+        },500)
+      };
+
+      poll();
+
+
+
+
     }
     $scope.getQuote = function(symbol, e) {
       var options = {
