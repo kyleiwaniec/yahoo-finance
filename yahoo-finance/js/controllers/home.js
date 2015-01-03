@@ -155,14 +155,18 @@ portal
             poll();
           })
 
-        },500)
+        },2000)
       };
 
       poll();
 
-
-
     }
+
+
+
+
+
+    
     $scope.getQuote = function(symbol, e) {
       var options = {
         "symbol": symbol
